@@ -1,5 +1,10 @@
 # mc-payment-fullstack
 
+### Requirements
+- Node.js
+- run with this command
+- ```node 1.logic.js```
+
 ### 1. logic
 Two Sums
 Given an array of integers nums and an integer target, return indices of the two numbers
