@@ -8,7 +8,7 @@ for(var i=0; i<nums.length; i++) {
     let hasilDiKurangi = target - nums[i];
     let cariYangCocok = nums.filter(item => item === hasilDiKurangi);
     if(cariYangCocok.length) {
-      result.push(i)
+      result.push(i);
     }
   }
 }
