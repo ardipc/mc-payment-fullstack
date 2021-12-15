@@ -6,7 +6,6 @@ import { withIronSessionSsr } from "iron-session/next";
 import { useRouter } from 'next/router';
 
 import { absoluteUrl, toRupiah } from '../middleware/utils';
-import Image from 'next/image';
 
 export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req }) {
@@ -91,7 +90,7 @@ export default function Home(props) {
               <input type="text" value={account.email} />
 
               <label htmlFor="fname">Note</label>
-              <textarea value={account.name} />
+              <textarea value={account.note} />
               <br/>
             </form>
           </div>
