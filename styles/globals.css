@@ -1,28 +1,153 @@
-html,
 body {
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, Noto Sans, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.container {
+  position: relative;
+  height: auto !important; 
+  min-height: 100%;
+}
+
+.mobile {
+  background-color: white;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.divider {
+  display: block;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height: 8px;
+  background-color: rgb(247, 247, 247);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.square-100 {
+  width: 100%;
+  height: 100px;
 }
 
-* {
-  box-sizing: border-box;
+.square-120 {
+  width: 100%;
+  height: 120px;
+}
+
+.square-140 {
+  width: 100%;
+  height: 140px;
+}
+
+.square-160 {
+  width: 100%;
+  height: 160px;
+}
+
+.square-180 {
+  width: 100%;
+  height: 180px;
+}
+
+.square-200 {
+  width: 100%;
+  height: 200px;
+}
+
+.square-220 {
+  width: 100%;
+  height: 220px;
+}
+
+.square-240 {
+  width: 100%;
+  height: 240px;
+}
+
+.card-1 {
+  background-image: linear-gradient(1deg, #1a1b1c 0%, #474b51 50%, #0b1a31 100%);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.scrolling-wrapper {
+  overflow-x: auto;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  overflow: visible;
+  width: 8px;
+}
+
+.responsive {
+  background-position: center;
+  background-size: cover;
+}
+
+ul.timeline {
+  list-style-type: none;
+  position: relative;
+}
+ul.timeline:before {
+  content: ' ';
+  background: #d4d9df;
+  display: inline-block;
+  position: absolute;
+  left: 15px;
+  width: 2px;
+  height: 100%;
+  z-index: 400;
+}
+ul.timeline > li {
+  margin: 30px 0;
+  padding-left: 6px;
+}
+ul.timeline > li:before {
+  content: ' ';
+  background: white;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid #22c0e8;
+  margin-top: 10px;
+  left: 6px;
+  width: 20px;
+  height: 20px;
+  z-index: 400;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media(max-width: 800px) {
+  .flex-container {
+    flex-direction: row;
+  }
 }
 
 /* Style the navigation menu */
 .navbar {
-  width: 100%;
   background-color: #555;
   overflow: auto;
   position: fixed;
   bottom: 0;
+  max-width: 480px;
   width: 100%;
+}
+
+.d-block {
+  display: block;
 }
 
 /* Navigation links */
@@ -43,7 +168,7 @@ a {
 
 /* Style the current/active link */
 .navbar a.active {
-  background-color: #04AA6D;
+  background-color: #000;
 }
 
 /* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
@@ -55,3 +180,41 @@ a {
     text-align: left; /* If you want the text to be left-aligned on small screens */
   }
 }
+
+button,
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  background-color: #000;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 14px;
+}
+
+input[type=number],
+input[type=text],
+input[type=email] {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 8px;
+  box-sizing: border-box;
+}
+
+.m-1 {
+  margin: 2rem;
+}
+
+.m-2 {
+  margin: 3rem;
+}
+
+.m-3 {
+  margin: 5rem;
+}
+
+
+

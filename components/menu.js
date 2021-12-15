@@ -1,22 +1,33 @@
 import Link from "next/link";
+import { FaDownload, FaHome, FaUpload, FaUser } from 'react-icons/fa';
+import { useRouter } from "next/router";
 
-export default function Menu() {
+export default function Menu(props) {
+  const { pathname } = useRouter();
+
   const menu = [
-    {name: 'Finances', icon: '', url: '/'},
-    {name: 'Spending', icon: '', url: '/spending'},
-    {name: 'Earning', icon: '', url: '/earning'},
-    {name: 'Account', icon: '', url: '/account'},
+    {name: 'Finances', icon: <FaHome />, url: '/'},
+    {name: 'Spending', icon: <FaUpload />, url: '/spending'},
+    {name: 'Earning', icon: <FaDownload />, url: '/earning'},
+    {name: 'Account', icon: <FaUser />, url: '/account'},
   ];
   
   return (
-    <div className="navbar">
-      {
-        menu.map((item, index) => (
-          <Link href={item.url} key={index}>
-            <a>{item.name}</a>
-          </Link>
-        ))
-      }
+    <div className="mobile">
+      <div className="flex-container navbar">
+        {
+          menu.map((item, index) => (
+            <Link href={item.url} key={index}>
+              <a className={item.url === pathname ? 'active' : ''}>
+                <span className="d-block">
+                  {item.icon}
+                </span>
+                {item.name}
+              </a>
+            </Link>
+          ))
+        }
+      </div>
     </div>
   )
 }
