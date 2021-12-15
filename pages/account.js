@@ -3,11 +3,16 @@ import { Fragment } from 'react/cjs/react.production.min'
 import Menu from '../components/menu';
 import styles from '../styles/Home.module.css'
 import { withIronSessionSsr } from "iron-session/next";
+import { useRouter } from 'next/router';
+
+import { absoluteUrl, toRupiah } from '../middleware/utils';
+import Image from 'next/image';
 
 export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req }) {
     const { user } = req.session;
 
+    
     if (!user) {
       return {
         redirect: {
@@ -16,10 +21,16 @@ export const getServerSideProps = withIronSessionSsr(
         },
       };
     }
+    
+    const {origin} = absoluteUrl(req);
+    let fAccount = await fetch(`${origin}/api/account/email?v=${user}`);
+    let rAccount = await fAccount.json();
+    const { result } = rAccount;
 
     return {
       props: {
-        user
+        user,
+        account: result[0]
       },
     };
   },
@@ -33,7 +44,28 @@ export const getServerSideProps = withIronSessionSsr(
 );
 
 export default function Home(props) {
-  const { user } = props;
+  const { user, account } = props;
+
+  console.log(props)
+
+  const router = useRouter();
+
+  const clickLogout = async (e) => {
+    let options = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'DELETE'
+    };
+    let f = await fetch(`/api/account/logout`, options);
+    let r = await f.json();
+    const { success } = r;
+    if (success) {
+      router.push('/login');
+    }
+  }
+
   return (
     <Fragment>
       <div className="mobile">
@@ -43,9 +75,28 @@ export default function Home(props) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className={styles.main}>
-          <h6>
-            Welcome to {user}
-          </h6>
+          <div style={{ position: 'relative' }}>
+            <img src={`https://avatar.oxro.io/avatar.svg?name=${account.name}&rounded=100&background=6ab04c&color=000`} width={100} />
+          </div>
+
+          <span style={{ marginTop: 12 }}>Balance</span>
+          <h2 style={{ margin: '12px 24px' }}>{toRupiah(account.balance, 'Rp')}</h2>
+
+          <div style={{ padding: '12px 32px' }}>
+            <form>
+              <label htmlFor="fname">Name</label>
+              <input type="text" value={account.name} />
+
+              <label htmlFor="fname">Email</label>
+              <input type="text" value={account.email} />
+
+              <label htmlFor="fname">Note</label>
+              <textarea value={account.name} />
+              <br/>
+            </form>
+          </div>
+
+          <button onClick={e => clickLogout(e)}>Logout</button>
         </main>
       </div>
       <Menu />

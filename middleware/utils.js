@@ -18,3 +18,11 @@ export function absoluteUrl(req, setLocalhost) {
     url: req,
   };
 }
+
+export function toRupiah(angka, rp) {
+  var rupiah = '';
+  var cekAngka = angka ? angka : 0;
+  var angkarev = cekAngka.toString().split('').reverse().join('');
+  for(var i = 0; i < angkarev.length; i++) if(i%3 === 0) rupiah += angkarev.substr(i,3)+'.';
+  return (rp ? rp+' ' : '')+rupiah.split('',rupiah.length-1).reverse().join('');
+}
