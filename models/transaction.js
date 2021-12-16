@@ -8,11 +8,13 @@ var transaction = new Schema({
   },
   accountId: {
     type: Schema.Types.ObjectId,
-    required: true
+    required: true,
+    ref: 'account'
   },
   categoryId: {
     type: Schema.Types.ObjectId,
-    required: true
+    required: true,
+    ref: 'category'
   },
   amount: {
     type: Number,
@@ -23,7 +25,7 @@ var transaction = new Schema({
     default: new Date()
   },
   note: {
-    type: Number,
+    type: String,
     required: true
   },
   createdAt: {
