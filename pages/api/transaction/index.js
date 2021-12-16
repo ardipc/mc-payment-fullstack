@@ -1,5 +1,6 @@
 import connectDB from '../../../middleware/mongodb';
 import Category from '../../../models/transaction';
+import Account from '../../../models/account';
 import nextConnect from 'next-connect';
 
 const handler = nextConnect()
@@ -17,7 +18,18 @@ const handler = nextConnect()
     const { body } = req;
     var user = new Category(body);
     var result = await user.save();
-    res.json({ success: true, result });
+    if (result) {
+      const { transactionType, amount, accountId } = body;
+      const getAmountNow = await Account.findById(accountId);
+      if (transactionType === 'Spending') {
+        var diKurangi = getAmountNow.balance - parseInt(amount);
+        await Account.findByIdAndUpdate(accountId, { balance: diKurangi });
+      } else {
+        var diTambah = getAmountNow.balance + parseInt(amount);
+        await Account.findByIdAndUpdate(accountId, { balance: diTambah });
+      }
+      res.json({ success: true, result });
+    }
   });
   
 export default connectDB(handler);

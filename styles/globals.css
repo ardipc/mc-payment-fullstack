@@ -199,13 +199,158 @@ label {
   margin: 8px;
 }
 
+.top-bar {
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.top-bar-item {
+  color: white;
+  text-align: center;
+  margin: 0 12px;
+}
+
+.my-1 {
+  margin: 0 8px;
+}
+
+.hover:hover {
+  padding: 4px 8px;
+  background-color: rgb(231, 218, 218);
+}
+
+.group {
+
+}
+
+form {
+  margin: 16px;
+}
+
+.text-red {
+  color: red;
+  font-weight: bold;
+}
+
+
+.text-green {
+  color: rgb(7, 209, 7);
+  font-weight: bold;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list {
+  padding: 0 24px;
+  list-style: none;
+}
+
+.list-item {
+  margin: 12px 0;
+  border: 1px solid;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.circle-div {
+  background-color: #000;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 82px;
+  right: 20px;
+}
+
+.grid {
+  margin: 1em;
+  display: grid;
+  grid-gap: 2px;
+  counter-reset: div;
+}
+
+.grid div {
+  text-align: center;
+}
+
+.grid div[class]:after {
+  display: block;
+  text-align: center;
+  color: crimson;
+}
+
+
+/* spanning cols, complete values missing */
+
+.col-2 {
+padding: 4px 8px;
+grid-column: auto/span 2;
+
+}
+
+.col-3 {
+padding: 4px 8px;
+grid-column: auto/span 3;
+
+}
+
+.col-6 {
+padding: 4px 8px;
+grid-column: auto/span 6;
+
+}
+
+.col-8 {
+  padding: 4px 8px;
+  grid-column: auto/span 8;
+}
+
+
+/* spanning rows , complete values missing*/
+
+.row-2 {
+  grid-row: auto/span 2;
+}
+
+
+.float-button {
+  position: absolute;
+  bottom: 12px;
+  right: 0;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 1rem;
+}
+
+footer {
+  margin-bottom: 68px;
+}
+
 textarea,
+select,
 input[type=number],
+input[type=date],
 input[type=text],
 input[type=email] {
   width: 100%;
   padding: 8px 12px;
-  margin: 8px;
+  margin: 8px 0;
   box-sizing: border-box;
 }
 

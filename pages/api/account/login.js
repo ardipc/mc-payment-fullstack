@@ -11,7 +11,10 @@ const withIron = withIronSessionApiRoute(async (req, res) => {
       res.json({ success: true, result: err });
     } else {
       if (result.length === 1) {
-        req.session.user = result[0].email;
+        req.session.user = {
+          id: result[0]._id,
+          email: result[0].email,
+        };
         await req.session.save();
         res.json({ success: true, result: err ? err : result });
       }
