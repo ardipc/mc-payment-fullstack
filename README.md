@@ -35,7 +35,7 @@ We need to have a web app that can help us track our income, expenses and the ba
 and all the data is stored / fetched via REST API to backend server.
 
 #### Demo Link
-[Open Demo](https://mc-payment-fullstack.vercel.app/)
+[Open Demo](https://mc-payment-fullstack-ct800ba23-ardipc.vercel.app/)
 
 ###### Point to review:
 1. You have to create backend server for REST API endpoint
