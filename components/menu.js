@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaDownload, FaHome, FaUpload, FaUser } from 'react-icons/fa';
+import { FaDownload, FaHome, FaPlusCircle, FaUpload, FaUser } from 'react-icons/fa';
 import { useRouter } from "next/router";
 
 export default function Menu(props) {
@@ -8,6 +8,7 @@ export default function Menu(props) {
   const menu = [
     {name: 'Finances', icon: <FaHome />, url: '/'},
     {name: 'Spending', icon: <FaUpload />, url: '/spending'},
+    {name: 'Create', icon: <FaPlusCircle />, url: '/transaction'},
     {name: 'Earning', icon: <FaDownload />, url: '/earning'},
     {name: 'Account', icon: <FaUser />, url: '/account'},
   ];
