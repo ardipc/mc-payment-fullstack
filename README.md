@@ -1,10 +1,5 @@
 # mc-payment-fullstack
 
-### Requirements
-- Node.js
-- run with this command
-- ```node 1.logic.js```
-
 ### 1. logic
 Two Sums
 Given an array of integers nums and an integer target, return indices of the two numbers
@@ -30,10 +25,17 @@ Example 3:
 Input: nums = [3,3], target = 6
 Output: [0,1]
 ```
+#### Answer
+- Node.js
+- run with this command
+- ```node 1.logic.js```
 
 ### 2. Budget Application
 We need to have a web app that can help us track our income, expenses and the balance,
 and all the data is stored / fetched via REST API to backend server.
+
+#### Demo Link
+[Open Demo](https://mc-payment-fullstack.vercel.app/)
 
 ###### Point to review:
 1. You have to create backend server for REST API endpoint
@@ -42,3 +44,9 @@ and all the data is stored / fetched via REST API to backend server.
 4. Javascript fundamental, Please show us what you got about javascript
 5. No jquery
 6. Write a clean and scalable code is nice to have
+
+#### Answer
+- Node.js
+- run with this command
+- ```npm install```
+- ```npm run dev```
